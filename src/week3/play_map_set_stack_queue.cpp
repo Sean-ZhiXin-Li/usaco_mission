@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <stack>
+#include <queue>
 using namespace std;
 
 // Demo 1 : basic usage of vector
@@ -120,17 +122,58 @@ void demo_set_unique()
     cout << "\n";
 }
 
+void demo_stack()
+{
+    cout << "[stack] demo (LIFO):\n";
+
+    stack<int> st;
+
+    st.push(1);
+    st.push(2);
+    st.push(3);
+
+    cout << "[stack] pop order: ";
+    while (!st.empty())
+    {
+        cout << st.top() << " ";
+        st.pop();
+    }
+    cout << "\n\n";
+}
+
+void demo_queue()
+{
+    cout << "[queue] demo (FIFO):\n";
+
+    queue<int> q;
+
+    q.push(1);
+    q.push(2);
+    q.push(3);
+
+    cout << "[queue] pop order: ";
+    while (!q.empty())
+    {
+        cout << q.front() << " ";
+
+        q.pop();
+    }
+    cout << "\n\n";
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    cout << " WEEK3 Day1: vector / map / set playground\n\n";
+    cout << " WEEK3 Day2: vector / map / set / stack / queue playground\n\n";
 
     demo_vector();
     demo_map_freq();
     demo_set_unique();
+    demo_stack();
+    demo_queue();
 
-    cout << "End of Day1 demo\n";
+    cout << "End of Day2 demo\n";
     return 0;
 }
