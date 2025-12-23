@@ -1,16 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Reusable BFS Template
-// Edit:
-// 1) State
-// 2) dist / visited structure
-// 3) neighbor generation
-
 struct State
 {
-    int r, c; // example: grid BFS
-    // add more fields if needed
+    int r, c;
 };
 
 int main()
@@ -27,31 +20,36 @@ int main()
 
     queue<State> q;
 
-    // dist[r][c] = distance from start
-    // -1 means unvisited
-
     vector<vector<int>> dist(n, vector<int>(m, -1));
 
-    State start{-1, -1};
     State target{-1, -1};
-
-    // find start / target
 
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
             if (grid[i][j] == 'S')
-                start = {i, j};
-            if (grid[i][j] == 'E')
+            {
+                dist[i][j] = 0;
+                q.push({i, j});
+            }
+
+            if (grid[i][j] == 'T')
+            {
                 target = {i, j};
+            }
         }
     }
 
-    // initialize BFS
-
-    dist[start.r][start.c] = 0;
-    q.push(start);
+#ifdef DEBUG
+    cerr << "target=" << target.r << "," << target.c << "\n";
+    cerr << "sources=" << q.size() << "\n";
+#endif
+    if (target.r == -1)
+    {
+        cout << -1 << '\n';
+        return 0;
+    }
 
     int dr[4] = {1, -1, 0, 0};
     int dc[4] = {0, 0, 1, -1};
@@ -82,8 +80,6 @@ int main()
             q.push({nr, nc});
         }
     }
-
-    // output answer
 
     cout << dist[target.r][target.c] << '\n';
 
