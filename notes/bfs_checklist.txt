@@ -1,0 +1,57 @@
+BFS Problem Checklist (Silver → Gold)
+
+1) Is every move equal cost?
+   → Yes → BFS
+   → No  → consider Dijkstra / 0-1 BFS
+   My trigger:
+    - If every transition costs exactly 1, BFS preserves shortest order.
+    - If edge cost can be 0 or 1 (like following arrows for free),
+    normal BFS breaks and 0-1 BFS is required.
+
+
+
+2) Is (position) enough to describe a state?
+   → If future choices depend on extra conditions,
+     add them into the state.
+    My trigger:
+    - If a special action (like breaking walls) affects future possibilities,
+    reaching the same cell with different usage counts is not equivalent.
+
+
+
+3) Can the same cell reached in different ways
+   lead to different future possibilities?
+   → Yes → visited must include extra dimensions.
+   My trigger:
+    - If two paths reach the same cell but leave me in different situations,
+    a simple 2D visited array is incorrect.
+
+
+
+4) What is the main resource or constraint?
+   Examples:
+   - remaining breaks
+   - remaining time
+   - parity (even / odd step)
+   - mode / key possession
+   My trigger:
+    - Limited resources can cause different shortest distances
+    to the same cell depending on how much resource was used.
+
+
+
+5) What does dist[state] actually mean?
+   → distance to reach THIS EXACT state.
+   My definition:
+    - dist[state] stores the shortest path to a specific situation,
+    not just whether a cell was visited.
+
+
+
+6) How is the final answer selected?
+   → min / max over all valid end states.
+   My rule:
+    - State variables (like used) affect the answer,
+    but are not necessarily part of the final objective.
+
+
