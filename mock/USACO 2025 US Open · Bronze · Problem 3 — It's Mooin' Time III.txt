@@ -1,0 +1,1 @@
+This problem does not need BFS because we are directly choosing indices in a fixed range, not exploring reachability step by step.

@@ -22,3 +22,12 @@
 ## Failure risks
 - Treating (x, y, power) as part of state instead of attributes.
 - Using sqrt and floating-point comparison instead of squared distance.
+
+
+## Micro review
+1) Checklist item that helped most: defining the state as cow index before coding.
+2) One thing I almost missed: checking visited before pushing into the BFS queue.
+3) My dist meaning stayed consistent? Y — I only tracked reachability, not distance.
+4) My state was complete at the start? Y — no extra fields were needed.
+5) Next time I will watch for: IO mode differences between training and contest.
+
