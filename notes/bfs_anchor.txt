@@ -1,0 +1,2 @@
+Milk Pails: BFS because state space is small and each operation costs 1 step.
+Key state: (a, b) with step-limited BFS (K).
