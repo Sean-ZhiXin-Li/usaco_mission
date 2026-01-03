@@ -1,0 +1,26 @@
+Q1. When does BFS strictly apply?
+A1:
+BFS strictly applies when all state transitions have equal cost (or cost 0/1 handled by layered BFS), and the problem asks for the shortest or earliest number of steps.
+
+Q2. What is the minimum information a State must contain?
+A2:
+A State must contain enough information to uniquely represent the current position or situation so that future decisions and transitions are fully determined.
+
+Q3. What is the true meaning of Visited?
+A3:
+Visited indicates that this state has already been reached with the minimum number of steps, and revisiting it would not produce a better result.
+
+Q4. When is the final answer NOT directly stored inside the BFS (e.g., not simply dist[target])?
+A4:
+When BFS is only used to explore reachability or traversal order, and the final answer is computed separately during or after traversal rather than taken directly from a distance array.
+
+Q5. What is the fundamental difference between Bronze-level BFS and Silver-level BFS?
+A5:
+Bronze-level BFS usually works on explicit grids or graphs with obvious states, where the answer is directly dist[target]. Silver-level BFS requires careful state modeling, and the state is no longer just a position but may include additional conditions.
+
+Self-level:
+Silver (early stage)
+
+Reason:
+I understand how BFS works but still hesitate when defining the correct state and identifying where the final answer comes from.
+
