@@ -1,0 +1,10 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int left = 0;
+    // window_state:
+    // - freq: frequency table (counts)
+    // - dashboard: e.g., distinct / missing /bad
+}
