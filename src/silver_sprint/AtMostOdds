@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long atMostOdds(const vector<int> &a, int K)
+{
+    if (K < 0)
+    {
+        return 0;
+    }
+
+    int n = (int)a.size();
+    int left = 0;
+    int odd = 0;
+    long long ans = 0;
+
+    for (int right = 0; right < n; right++)
+    {
+        if (a[right] % 2 != 0)
+        {
+            odd++;
+        }
+
+        while (odd > K)
+        {
+            if (a[left] % 2 != 0)
+            {
+                odd--;
+            }
+            left++;
+        }
+
+        ans += right - left + 1;
+    }
+
+    return ans;
+}
